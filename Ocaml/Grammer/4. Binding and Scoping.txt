@@ -1,0 +1,46 @@
+(* Binding and Scoping rules *) - Operational semantics for arithmetical expressions
+
+Operational semantics configuration from previous example was in the shape of (p, s)
+But, now the configuration for arithmetical expressions are (e, m)
+
+Within arithemetical expressions of operational semantics, we can use hyphothesis to simplify expressions
+
+(e,m) -> (e1, m)
+(e add v2, m) -> (e1 and v2, m)
+
+(3 add 5, ()) -> (8, ())
+(3 add 5 minus 6, ()) -> (8 minus 6, ()) -> (2, ())
+
+How this configuration could be configured is that we can use hyphothesis to reason about the reduction.
+
+(* Variables *)
+Functional languages use variables as names (where the association name-value is stored in
+an environment)
+Imperative languages are abstractions of von Neumann architecture
+- A variable abstracts the concept of memory location
+
+Since we have to populate variables within our program, we introduce let...in... expression
+
+(e1, m) -> (e3, m)
+(let x=e1 in e2, m) -> (let x=e3 in e2, m)
+
+(let x=v in e, m) -> (e, m@ (x=v))
+@ to extend the environment with a new name-value association
+
+
+(* Static Scoping (aka lexical scoping) vs Dynamic Scoping *)
+
+(* Static Scoping *)
+Ocaml scoping rule says that a variable name is statically associated with the closest
+definiton in the abstract syntax tree 
+
+Enclosing static scopes (to a specific scope) are called its static ancestors, the nearest
+static ancestor is called a static parent
+
+Variables have classification: local, nonlocal, and global - a good example is Python code
+
+(* Dynamic Scoping *)
+
+In the static world, the sequence of scopes are defiend by static ancestor
+However, dynamic scoping is based on calling sequences of program units, not their textual
+layout

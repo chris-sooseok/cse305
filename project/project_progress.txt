@@ -1,0 +1,11 @@
+
+part3
+
+------ progress ------
+FUN, RETURM, FUNEND, and CALL are added
+1. what type should FUN be?
+2. how should store fun body to the closure?
+3. how should I utilize command list list structure?
+
+CLOSURE of (stackValue * command list * (stackValue*stackValue)list list)
+
